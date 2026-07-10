@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: crashloop-demo-config
+  namespace: troubleshooting-lab
+  labels:
+    app: crashloop-demo
+data:
+  APP_MESSAGE: "CrashLoopBackOff incident successfully resolved"

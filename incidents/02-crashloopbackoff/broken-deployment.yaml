@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crashloop-demo
+  namespace: troubleshooting-lab
+  labels:
+    app: crashloop-demo
+    incident: crashloopbackoff
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: crashloop-demo
+
+  template:
+    metadata:
+      labels:
+        app: crashloop-demo
+        incident: crashloopbackoff
+
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+
+      containers:
+        - name: application
+          image: crashloop-demo:v2
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 8080
+
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+
+          resources:
+            requests:
+              cpu: 50m
+              memory: 32Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
