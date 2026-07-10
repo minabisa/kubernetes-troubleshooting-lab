@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-hungry-demo
+  namespace: troubleshooting-lab
+  labels:
+    app: cpu-hungry-demo
+    incident: pods-not-schedulable
+    cause: insufficient-cpu
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: cpu-hungry-demo
+
+  template:
+    metadata:
+      labels:
+        app: cpu-hungry-demo
+        incident: pods-not-schedulable
+        cause: insufficient-cpu
+
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.27-alpine
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - name: http
+              containerPort: 80
+
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+
+            limits:
+              cpu: 200m
+              memory: 128Mi
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 5
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10

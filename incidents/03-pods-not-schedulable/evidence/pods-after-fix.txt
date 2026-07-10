@@ -1,0 +1,4 @@
+NAME                               READY   STATUS    RESTARTS   AGE     IP           NODE                          NOMINATED NODE   READINESS GATES
+cpu-hungry-demo-6c8d7fc7bc-f67vz   1/1     Running   0          34m     10.244.1.7   troubleshooting-lab-worker2   <none>           <none>
+selector-demo-7cd7bf55fb-b4s9z     1/1     Running   0          27m     10.244.3.7   troubleshooting-lab-worker    <none>           <none>
+taint-demo-57bd4cc6cb-rshd7        1/1     Running   0          2m26s   10.244.1.8   troubleshooting-lab-worker2   <none>           <none>

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taint-demo
+  namespace: troubleshooting-lab
+  labels:
+    app: taint-demo
+    incident: pods-not-schedulable
+    cause: untolerated-taint
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: taint-demo
+
+  template:
+    metadata:
+      labels:
+        app: taint-demo
+        incident: pods-not-schedulable
+        cause: untolerated-taint
+
+    spec:
+      nodeSelector:
+        node-type: database
+
+      tolerations:
+        - key: dedicated
+          operator: Equal
+          value: database
+          effect: NoSchedule
+
+      containers:
+        - name: web
+          image: nginx:1.27-alpine
+          imagePullPolicy: IfNotPresent
+
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+
+            limits:
+              cpu: 200m
+              memory: 128Mi

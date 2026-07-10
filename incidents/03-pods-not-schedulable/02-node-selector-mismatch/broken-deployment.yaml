@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selector-demo
+  namespace: troubleshooting-lab
+  labels:
+    app: selector-demo
+    incident: pods-not-schedulable
+    cause: node-selector-mismatch
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: selector-demo
+
+  template:
+    metadata:
+      labels:
+        app: selector-demo
+        incident: pods-not-schedulable
+        cause: node-selector-mismatch
+
+    spec:
+      nodeSelector:
+        workload-type: gpu
+
+      containers:
+        - name: web
+          image: nginx:1.27-alpine
+          imagePullPolicy: IfNotPresent
+
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+
+            limits:
+              cpu: 200m
+              memory: 128Mi

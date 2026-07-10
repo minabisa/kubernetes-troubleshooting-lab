@@ -1,0 +1,4 @@
+NAME                                CPU   MEMORY      TAINTS
+troubleshooting-lab-control-plane   11    8025156Ki   [map[effect:NoSchedule key:node-role.kubernetes.io/control-plane]]
+troubleshooting-lab-worker          11    8025156Ki   <none>
+troubleshooting-lab-worker2         11    8025156Ki   [map[effect:NoSchedule key:dedicated value:database]]

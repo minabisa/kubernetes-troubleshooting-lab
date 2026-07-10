@@ -1,0 +1,58 @@
+LAST SEEN   TYPE      REASON              OBJECT                                  MESSAGE
+73m         Normal    Pulled              pod/crashloop-demo-89b787cbd-b22jl      Container image "crashloop-demo:v2" already present on machine and can be accessed by the pod
+73m         Normal    Started             pod/crashloop-demo-89b787cbd-b22jl      Container started
+73m         Normal    Created             pod/crashloop-demo-89b787cbd-b22jl      Container created
+73m         Normal    Started             pod/crashloop-demo-89b787cbd-pd7hc      Container started
+73m         Normal    Created             pod/crashloop-demo-89b787cbd-pd7hc      Container created
+73m         Normal    Pulled              pod/crashloop-demo-89b787cbd-pd7hc      Container image "crashloop-demo:v2" already present on machine and can be accessed by the pod
+73m         Warning   BackOff             pod/crashloop-demo-89b787cbd-b22jl      Back-off restarting failed container application in pod crashloop-demo-89b787cbd-b22jl_troubleshooting-lab(363d1db2-3f58-4b6a-86e9-33dbe69b1a9e)
+72m         Warning   BackOff             pod/crashloop-demo-89b787cbd-pd7hc      Back-off restarting failed container application in pod crashloop-demo-89b787cbd-pd7hc_troubleshooting-lab(4302e2d3-b4bc-49df-9ac9-5555e9239699)
+72m         Normal    Started             pod/crashloop-demo-58fff4847-99d9h      Container started
+72m         Normal    SuccessfulCreate    replicaset/crashloop-demo-58fff4847     Created pod: crashloop-demo-58fff4847-99d9h
+72m         Normal    ScalingReplicaSet   deployment/crashloop-demo               Scaled up replica set crashloop-demo-58fff4847 from 0 to 1
+72m         Normal    Scheduled           pod/crashloop-demo-58fff4847-99d9h      Successfully assigned troubleshooting-lab/crashloop-demo-58fff4847-99d9h to troubleshooting-lab-worker
+72m         Normal    Pulled              pod/crashloop-demo-58fff4847-99d9h      Container image "crashloop-demo:v2" already present on machine and can be accessed by the pod
+72m         Normal    Created             pod/crashloop-demo-58fff4847-99d9h      Container created
+72m         Normal    Scheduled           pod/crashloop-demo-58fff4847-szbb6      Successfully assigned troubleshooting-lab/crashloop-demo-58fff4847-szbb6 to troubleshooting-lab-worker2
+72m         Normal    SuccessfulDelete    replicaset/crashloop-demo-89b787cbd     Deleted pod: crashloop-demo-89b787cbd-b22jl
+72m         Normal    ScalingReplicaSet   deployment/crashloop-demo               Scaled up replica set crashloop-demo-58fff4847 from 1 to 2
+72m         Normal    SuccessfulCreate    replicaset/crashloop-demo-58fff4847     Created pod: crashloop-demo-58fff4847-szbb6
+72m         Normal    ScalingReplicaSet   deployment/crashloop-demo               Scaled down replica set crashloop-demo-89b787cbd from 2 to 1
+72m         Normal    Pulled              pod/crashloop-demo-58fff4847-szbb6      Container image "crashloop-demo:v2" already present on machine and can be accessed by the pod
+72m         Normal    Created             pod/crashloop-demo-58fff4847-szbb6      Container created
+72m         Normal    Started             pod/crashloop-demo-58fff4847-szbb6      Container started
+72m         Normal    ScalingReplicaSet   deployment/crashloop-demo               Scaled down replica set crashloop-demo-89b787cbd from 1 to 0
+72m         Normal    SuccessfulDelete    replicaset/crashloop-demo-89b787cbd     Deleted pod: crashloop-demo-89b787cbd-pd7hc
+38m         Normal    ScalingReplicaSet   deployment/cpu-hungry-demo              Scaled up replica set cpu-hungry-demo-5d7bb9dbb7 from 0 to 1
+38m         Warning   FailedScheduling    pod/cpu-hungry-demo-5d7bb9dbb7-5nwpf    0/3 nodes are available: 1 node(s) had untolerated taint(s), 2 Insufficient cpu. no new claims to deallocate, preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.
+38m         Normal    SuccessfulCreate    replicaset/cpu-hungry-demo-5d7bb9dbb7   Created pod: cpu-hungry-demo-5d7bb9dbb7-5nwpf
+35m         Normal    SuccessfulCreate    replicaset/cpu-hungry-demo-6c8d7fc7bc   Created pod: cpu-hungry-demo-6c8d7fc7bc-f67vz
+35m         Normal    Scheduled           pod/cpu-hungry-demo-6c8d7fc7bc-f67vz    Successfully assigned troubleshooting-lab/cpu-hungry-demo-6c8d7fc7bc-f67vz to troubleshooting-lab-worker2
+35m         Normal    ScalingReplicaSet   deployment/cpu-hungry-demo              Scaled up replica set cpu-hungry-demo-6c8d7fc7bc from 0 to 1
+35m         Normal    Created             pod/cpu-hungry-demo-6c8d7fc7bc-f67vz    Container created
+35m         Normal    Started             pod/cpu-hungry-demo-6c8d7fc7bc-f67vz    Container started
+35m         Normal    Pulled              pod/cpu-hungry-demo-6c8d7fc7bc-f67vz    Container image "nginx:1.27-alpine" already present on machine and can be accessed by the pod
+34m         Normal    SuccessfulDelete    replicaset/cpu-hungry-demo-5d7bb9dbb7   Deleted pod: cpu-hungry-demo-5d7bb9dbb7-5nwpf
+34m         Normal    ScalingReplicaSet   deployment/cpu-hungry-demo              Scaled down replica set cpu-hungry-demo-5d7bb9dbb7 from 1 to 0
+33m         Normal    ScalingReplicaSet   deployment/selector-demo                Scaled up replica set selector-demo-77c875d4ff from 0 to 1
+33m         Warning   FailedScheduling    pod/selector-demo-77c875d4ff-z47rk      0/3 nodes are available: 1 node(s) had untolerated taint(s), 2 node(s) didn't match Pod's node affinity/selector. no new claims to deallocate, preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.
+33m         Normal    SuccessfulCreate    replicaset/selector-demo-77c875d4ff     Created pod: selector-demo-77c875d4ff-z47rk
+28m         Normal    ScalingReplicaSet   deployment/selector-demo                Scaled up replica set selector-demo-7cd7bf55fb from 0 to 1
+28m         Normal    Scheduled           pod/selector-demo-7cd7bf55fb-b4s9z      Successfully assigned troubleshooting-lab/selector-demo-7cd7bf55fb-b4s9z to troubleshooting-lab-worker
+28m         Normal    Pulled              pod/selector-demo-7cd7bf55fb-b4s9z      Container image "nginx:1.27-alpine" already present on machine and can be accessed by the pod
+28m         Normal    Created             pod/selector-demo-7cd7bf55fb-b4s9z      Container created
+28m         Normal    SuccessfulCreate    replicaset/selector-demo-7cd7bf55fb     Created pod: selector-demo-7cd7bf55fb-b4s9z
+28m         Normal    Started             pod/selector-demo-7cd7bf55fb-b4s9z      Container started
+28m         Normal    ScalingReplicaSet   deployment/selector-demo                Scaled down replica set selector-demo-77c875d4ff from 1 to 0
+28m         Normal    SuccessfulDelete    replicaset/selector-demo-77c875d4ff     Deleted pod: selector-demo-77c875d4ff-z47rk
+5m5s        Normal    SuccessfulCreate    replicaset/taint-demo-785565477f        Created pod: taint-demo-785565477f-h5qk7
+5m5s        Normal    ScalingReplicaSet   deployment/taint-demo                   Scaled up replica set taint-demo-785565477f from 0 to 1
+5m5s        Warning   FailedScheduling    pod/taint-demo-785565477f-h5qk7         0/3 nodes are available: 1 node(s) didn't match Pod's node affinity/selector, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.
+2m54s       Normal    Scheduled           pod/taint-demo-57bd4cc6cb-rshd7         Successfully assigned troubleshooting-lab/taint-demo-57bd4cc6cb-rshd7 to troubleshooting-lab-worker2
+2m54s       Normal    ScalingReplicaSet   deployment/taint-demo                   Scaled up replica set taint-demo-57bd4cc6cb from 0 to 1
+2m54s       Normal    SuccessfulCreate    replicaset/taint-demo-57bd4cc6cb        Created pod: taint-demo-57bd4cc6cb-rshd7
+2m53s       Normal    Pulled              pod/taint-demo-57bd4cc6cb-rshd7         Container image "nginx:1.27-alpine" already present on machine and can be accessed by the pod
+2m53s       Normal    Started             pod/taint-demo-57bd4cc6cb-rshd7         Container started
+2m53s       Normal    Created             pod/taint-demo-57bd4cc6cb-rshd7         Container created
+2m52s       Normal    SuccessfulDelete    replicaset/taint-demo-785565477f        Deleted pod: taint-demo-785565477f-h5qk7
+2m52s       Normal    ScalingReplicaSet   deployment/taint-demo                   Scaled down replica set taint-demo-785565477f from 1 to 0

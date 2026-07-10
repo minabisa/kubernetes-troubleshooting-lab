@@ -1,0 +1,4 @@
+NAME                                STATUS   ROLES           AGE     VERSION   NODE-TYPE
+troubleshooting-lab-control-plane   Ready    control-plane   3h36m   v1.35.0   
+troubleshooting-lab-worker          Ready    <none>          3h36m   v1.35.0   application
+troubleshooting-lab-worker2         Ready    <none>          3h36m   v1.35.0   database
