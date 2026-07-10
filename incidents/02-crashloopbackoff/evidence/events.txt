@@ -1,0 +1,39 @@
+LAST SEEN   TYPE      REASON              OBJECT                                 MESSAGE
+31m         Normal    Pulled              pod/crashloop-demo-7bfbccb8b9-zc6mj    Container image "crashloop-demo:v1" already present on machine and can be accessed by the pod
+31m         Warning   Failed              pod/crashloop-demo-7bfbccb8b9-zwwcc    Error: container has runAsNonRoot and image has non-numeric user (appuser), cannot verify user is non-root (pod: "crashloop-demo-7bfbccb8b9-zwwcc_troubleshooting-lab(29b86fda-93a0-4381-a685-7b7a83e4aba6)", container: application)
+31m         Normal    Pulled              pod/crashloop-demo-7bfbccb8b9-zwwcc    Container image "crashloop-demo:v1" already present on machine and can be accessed by the pod
+31m         Warning   Failed              pod/crashloop-demo-7bfbccb8b9-zc6mj    Error: container has runAsNonRoot and image has non-numeric user (appuser), cannot verify user is non-root (pod: "crashloop-demo-7bfbccb8b9-zc6mj_troubleshooting-lab(c2bb2eff-c8e0-451d-905c-8e7c16347b61)", container: application)
+29m         Normal    ScalingReplicaSet   deployment/crashloop-demo              Scaled up replica set crashloop-demo-89b787cbd from 0 to 1
+29m         Normal    SuccessfulCreate    replicaset/crashloop-demo-89b787cbd    Created pod: crashloop-demo-89b787cbd-b22jl
+29m         Normal    Scheduled           pod/crashloop-demo-89b787cbd-b22jl     Successfully assigned troubleshooting-lab/crashloop-demo-89b787cbd-b22jl to troubleshooting-lab-worker
+29m         Normal    SuccessfulCreate    replicaset/crashloop-demo-89b787cbd    Created pod: crashloop-demo-89b787cbd-pd7hc
+12m         Normal    Pulled              pod/crashloop-demo-89b787cbd-b22jl     Container image "crashloop-demo:v2" already present on machine and can be accessed by the pod
+29m         Normal    ScalingReplicaSet   deployment/crashloop-demo              Scaled up replica set crashloop-demo-89b787cbd from 1 to 2
+29m         Normal    ScalingReplicaSet   deployment/crashloop-demo              Scaled down replica set crashloop-demo-7bfbccb8b9 from 2 to 1
+29m         Normal    Scheduled           pod/crashloop-demo-89b787cbd-pd7hc     Successfully assigned troubleshooting-lab/crashloop-demo-89b787cbd-pd7hc to troubleshooting-lab-worker2
+12m         Normal    Started             pod/crashloop-demo-89b787cbd-b22jl     Container started
+12m         Normal    Created             pod/crashloop-demo-89b787cbd-b22jl     Container created
+29m         Normal    SuccessfulDelete    replicaset/crashloop-demo-7bfbccb8b9   Deleted pod: crashloop-demo-7bfbccb8b9-zc6mj
+13m         Normal    Pulled              pod/crashloop-demo-89b787cbd-pd7hc     Container image "crashloop-demo:v2" already present on machine and can be accessed by the pod
+29m         Normal    ScalingReplicaSet   deployment/crashloop-demo              Scaled down replica set crashloop-demo-7bfbccb8b9 from 1 to 0
+29m         Normal    SuccessfulDelete    replicaset/crashloop-demo-7bfbccb8b9   Deleted pod: crashloop-demo-7bfbccb8b9-zwwcc
+13m         Normal    Started             pod/crashloop-demo-89b787cbd-pd7hc     Container started
+13m         Normal    Created             pod/crashloop-demo-89b787cbd-pd7hc     Container created
+12m         Warning   BackOff             pod/crashloop-demo-89b787cbd-b22jl     Back-off restarting failed container application in pod crashloop-demo-89b787cbd-b22jl_troubleshooting-lab(363d1db2-3f58-4b6a-86e9-33dbe69b1a9e)
+11m         Warning   BackOff             pod/crashloop-demo-89b787cbd-pd7hc     Back-off restarting failed container application in pod crashloop-demo-89b787cbd-pd7hc_troubleshooting-lab(4302e2d3-b4bc-49df-9ac9-5555e9239699)
+12m         Normal    Started             pod/crashloop-demo-58fff4847-99d9h     Container started
+12m         Normal    SuccessfulCreate    replicaset/crashloop-demo-58fff4847    Created pod: crashloop-demo-58fff4847-99d9h
+12m         Normal    Created             pod/crashloop-demo-58fff4847-99d9h     Container created
+12m         Normal    Scheduled           pod/crashloop-demo-58fff4847-99d9h     Successfully assigned troubleshooting-lab/crashloop-demo-58fff4847-99d9h to troubleshooting-lab-worker
+12m         Normal    Pulled              pod/crashloop-demo-58fff4847-99d9h     Container image "crashloop-demo:v2" already present on machine and can be accessed by the pod
+12m         Normal    ScalingReplicaSet   deployment/crashloop-demo              Scaled up replica set crashloop-demo-58fff4847 from 0 to 1
+11m         Normal    ScalingReplicaSet   deployment/crashloop-demo              Scaled up replica set crashloop-demo-58fff4847 from 1 to 2
+11m         Normal    Scheduled           pod/crashloop-demo-58fff4847-szbb6     Successfully assigned troubleshooting-lab/crashloop-demo-58fff4847-szbb6 to troubleshooting-lab-worker2
+11m         Normal    SuccessfulDelete    replicaset/crashloop-demo-89b787cbd    Deleted pod: crashloop-demo-89b787cbd-b22jl
+11m         Normal    ScalingReplicaSet   deployment/crashloop-demo              Scaled down replica set crashloop-demo-89b787cbd from 2 to 1
+11m         Normal    SuccessfulCreate    replicaset/crashloop-demo-58fff4847    Created pod: crashloop-demo-58fff4847-szbb6
+11m         Normal    Created             pod/crashloop-demo-58fff4847-szbb6     Container created
+11m         Normal    Started             pod/crashloop-demo-58fff4847-szbb6     Container started
+11m         Normal    Pulled              pod/crashloop-demo-58fff4847-szbb6     Container image "crashloop-demo:v2" already present on machine and can be accessed by the pod
+11m         Normal    SuccessfulDelete    replicaset/crashloop-demo-89b787cbd    Deleted pod: crashloop-demo-89b787cbd-pd7hc
+11m         Normal    ScalingReplicaSet   deployment/crashloop-demo              Scaled down replica set crashloop-demo-89b787cbd from 1 to 0

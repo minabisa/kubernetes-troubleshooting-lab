@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2026-07-10T21:30:58Z"
+  creationTimestamp: "2026-07-10T21:30:58Z"
+  labels:
+    app: crashloop-demo
+    endpoints.kubernetes.io/managed-by: endpoint-controller
+  name: crashloop-demo
+  namespace: troubleshooting-lab
+  resourceVersion: "13889"
+  uid: 5f377669-56f3-4e25-879d-fb92a9841958
+subsets:
+- addresses:
+  - ip: 10.244.1.6
+    nodeName: troubleshooting-lab-worker2
+    targetRef:
+      kind: Pod
+      name: crashloop-demo-58fff4847-szbb6
+      namespace: troubleshooting-lab
+      uid: 2a1178ec-5744-4e4c-add6-40c83020c2fb
+  - ip: 10.244.3.6
+    nodeName: troubleshooting-lab-worker
+    targetRef:
+      kind: Pod
+      name: crashloop-demo-58fff4847-99d9h
+      namespace: troubleshooting-lab
+      uid: 113f7ca7-0be4-46e8-b7ac-e8ab5d51b117
+  ports:
+  - name: http
+    port: 8080
+    protocol: TCP

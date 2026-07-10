@@ -1,0 +1,3 @@
+NAME                             READY   STATUS    RESTARTS   AGE   IP           NODE                          NOMINATED NODE   READINESS GATES
+crashloop-demo-58fff4847-99d9h   1/1     Running   0          11m   10.244.3.6   troubleshooting-lab-worker    <none>           <none>
+crashloop-demo-58fff4847-szbb6   1/1     Running   0          11m   10.244.1.6   troubleshooting-lab-worker2   <none>           <none>
