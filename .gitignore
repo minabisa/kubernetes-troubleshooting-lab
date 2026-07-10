@@ -1,0 +1,10 @@
+.DS_Store
+.vscode/
+.idea/
+*.log
+*.tmp
+.env
+secrets.yaml
+terraform.tfstate
+terraform.tfstate.*
+.terraform/

@@ -1,0 +1,3 @@
+NAME                               READY   STATUS    RESTARTS   AGE   IP           NODE                          NOMINATED NODE   READINESS GATES
+image-pull-demo-66c44bd6bc-578kl   1/1     Running   0          31m   10.244.3.3   troubleshooting-lab-worker    <none>           <none>
+image-pull-demo-66c44bd6bc-xpphr   1/1     Running   0          30m   10.244.1.3   troubleshooting-lab-worker2   <none>           <none>
