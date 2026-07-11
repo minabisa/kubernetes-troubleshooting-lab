@@ -1,0 +1,2 @@
+NAME             READY   STATUS    RESTARTS   AGE     IP            NODE                         NOMINATED NODE   READINESS GATES
+stateful-web-0   1/1     Running   0          3m30s   10.244.3.12   troubleshooting-lab-worker   <none>           <none>

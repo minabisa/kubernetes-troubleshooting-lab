@@ -1,0 +1,6 @@
+Pod name: stateful-web-0
+UID before deletion: d1f34995-b1dd-455d-91b2-d60064f944ca
+UID after recreation: f50873f0-80ee-4682-9a44-8f66ea10db90
+
+The Pod UID changed, confirming that the Pod was recreated.
+The persistent marker remained available through the same PVC.

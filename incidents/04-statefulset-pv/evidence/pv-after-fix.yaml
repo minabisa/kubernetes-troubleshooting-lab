@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    local.path.provisioner/selected-node: troubleshooting-lab-worker
+    pv.kubernetes.io/provisioned-by: rancher.io/local-path
+  creationTimestamp: "2026-07-11T21:31:16Z"
+  finalizers:
+  - kubernetes.io/pv-protection
+  name: pvc-1d6b25d2-4b62-4fc3-b683-e976331fe853
+  resourceVersion: "46202"
+  uid: 50b5dcba-ebd0-4e32-a2fa-66d763ce0f10
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: web-data-stateful-web-0
+    namespace: troubleshooting-lab
+    resourceVersion: "46184"
+    uid: 1d6b25d2-4b62-4fc3-b683-e976331fe853
+  hostPath:
+    path: /var/local-path-provisioner/pvc-1d6b25d2-4b62-4fc3-b683-e976331fe853_troubleshooting-lab_web-data-stateful-web-0
+    type: DirectoryOrCreate
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - troubleshooting-lab-worker
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: standard
+  volumeMode: Filesystem
+status:
+  lastPhaseTransitionTime: "2026-07-11T21:31:16Z"
+  phase: Bound

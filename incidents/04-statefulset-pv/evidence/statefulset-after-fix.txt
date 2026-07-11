@@ -1,0 +1,2 @@
+NAME           READY   AGE   CONTAINERS   IMAGES
+stateful-web   1/1     63m   nginx        nginxinc/nginx-unprivileged:1.27-alpine
