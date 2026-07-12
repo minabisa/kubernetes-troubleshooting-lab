@@ -1,0 +1,117 @@
+apiVersion: v1
+items:
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"NetworkPolicy","metadata":{"annotations":{},"labels":{"incident":"networkpolicy","scenario":"selector-mismatch"},"name":"backend-allow-frontend","namespace":"network-policy-lab"},"spec":{"ingress":[{"from":[{"podSelector":{"matchLabels":{"access":"backend"}}}],"ports":[{"port":8080,"protocol":"TCP"}]}],"podSelector":{"matchLabels":{"app":"backend"}},"policyTypes":["Ingress"]}}
+    creationTimestamp: "2026-07-11T23:59:49Z"
+    generation: 2
+    labels:
+      incident: networkpolicy
+      scenario: selector-mismatch
+    name: backend-allow-frontend
+    namespace: network-policy-lab
+    resourceVersion: "7935"
+    uid: cc23e77a-07e1-4716-ad0e-d841ea9d9bea
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            access: backend
+      ports:
+      - port: 8080
+        protocol: TCP
+    podSelector:
+      matchLabels:
+        app: backend
+    policyTypes:
+    - Ingress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"NetworkPolicy","metadata":{"annotations":{},"labels":{"incident":"networkpolicy","scenario":"default-deny"},"name":"backend-default-deny","namespace":"network-policy-lab"},"spec":{"ingress":[],"podSelector":{"matchLabels":{"app":"backend"}},"policyTypes":["Ingress"]}}
+    creationTimestamp: "2026-07-11T23:54:28Z"
+    generation: 1
+    labels:
+      incident: networkpolicy
+      scenario: default-deny
+    name: backend-default-deny
+    namespace: network-policy-lab
+    resourceVersion: "7148"
+    uid: 0e3b4b14-a420-4f3b-a4bf-8e8718290e3d
+  spec:
+    podSelector:
+      matchLabels:
+        app: backend
+    policyTypes:
+    - Ingress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"NetworkPolicy","metadata":{"annotations":{},"labels":{"incident":"networkpolicy","scenario":"dns-blocked"},"name":"frontend-allow-required-egress","namespace":"network-policy-lab"},"spec":{"egress":[{"ports":[{"port":53,"protocol":"UDP"},{"port":53,"protocol":"TCP"}],"to":[{"namespaceSelector":{"matchLabels":{"kubernetes.io/metadata.name":"kube-system"}},"podSelector":{"matchLabels":{"k8s-app":"kube-dns"}}}]},{"ports":[{"port":8080,"protocol":"TCP"}],"to":[{"podSelector":{"matchLabels":{"app":"backend"}}}]}],"podSelector":{"matchLabels":{"app":"frontend"}},"policyTypes":["Egress"]}}
+    creationTimestamp: "2026-07-12T00:03:18Z"
+    generation: 1
+    labels:
+      incident: networkpolicy
+      scenario: dns-blocked
+    name: frontend-allow-required-egress
+    namespace: network-policy-lab
+    resourceVersion: "8213"
+    uid: 1bb71416-d760-45a0-a30a-e4b307034e18
+  spec:
+    egress:
+    - ports:
+      - port: 53
+        protocol: UDP
+      - port: 53
+        protocol: TCP
+      to:
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: kube-system
+        podSelector:
+          matchLabels:
+            k8s-app: kube-dns
+    - ports:
+      - port: 8080
+        protocol: TCP
+      to:
+      - podSelector:
+          matchLabels:
+            app: backend
+    podSelector:
+      matchLabels:
+        app: frontend
+    policyTypes:
+    - Egress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"NetworkPolicy","metadata":{"annotations":{},"labels":{"incident":"networkpolicy","scenario":"dns-blocked"},"name":"frontend-default-deny-egress","namespace":"network-policy-lab"},"spec":{"egress":[],"podSelector":{"matchLabels":{"app":"frontend"}},"policyTypes":["Egress"]}}
+    creationTimestamp: "2026-07-12T00:01:50Z"
+    generation: 1
+    labels:
+      incident: networkpolicy
+      scenario: dns-blocked
+    name: frontend-default-deny-egress
+    namespace: network-policy-lab
+    resourceVersion: "8037"
+    uid: f8c774ff-bffd-4a2f-8468-510da11bf042
+  spec:
+    podSelector:
+      matchLabels:
+        app: frontend
+    policyTypes:
+    - Egress
+kind: List
+metadata:
+  resourceVersion: ""

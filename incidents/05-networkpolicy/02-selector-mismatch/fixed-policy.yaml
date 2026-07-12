@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: backend-allow-frontend
+  namespace: network-policy-lab
+  labels:
+    incident: networkpolicy
+    scenario: selector-mismatch
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+
+  policyTypes:
+    - Ingress
+
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              access: backend
+
+      ports:
+        - protocol: TCP
+          port: 8080

@@ -1,0 +1,14 @@
+NAME                                       READY   STATUS    RESTARTS   AGE   IP               NODE                              NOMINATED NODE   READINESS GATES
+calico-apiserver-75f8d648fd-l8jdz          1/1     Running   0          53m   192.168.209.2    networkpolicy-lab-control-plane   <none>           <none>
+calico-apiserver-75f8d648fd-nktxv          1/1     Running   0          53m   192.168.209.8    networkpolicy-lab-control-plane   <none>           <none>
+calico-kube-controllers-56cd496b8b-pnxq9   1/1     Running   0          53m   192.168.209.3    networkpolicy-lab-control-plane   <none>           <none>
+calico-node-9w4tm                          1/1     Running   0          53m   172.20.0.6       networkpolicy-lab-worker          <none>           <none>
+calico-node-brlk6                          1/1     Running   0          53m   172.20.0.5       networkpolicy-lab-worker2         <none>           <none>
+calico-node-cjh7x                          1/1     Running   0          53m   172.20.0.7       networkpolicy-lab-control-plane   <none>           <none>
+calico-typha-6d6c46d75f-646fz              1/1     Running   0          53m   172.20.0.6       networkpolicy-lab-worker          <none>           <none>
+calico-typha-6d6c46d75f-sjjkb              1/1     Running   0          53m   172.20.0.5       networkpolicy-lab-worker2         <none>           <none>
+csi-node-driver-7tj8n                      2/2     Running   0          53m   192.168.63.1     networkpolicy-lab-worker          <none>           <none>
+csi-node-driver-jmwrv                      2/2     Running   0          53m   192.168.60.193   networkpolicy-lab-worker2         <none>           <none>
+csi-node-driver-nrghp                      2/2     Running   0          53m   192.168.209.9    networkpolicy-lab-control-plane   <none>           <none>
+goldmane-646fd87bdd-tvlv2                  1/1     Running   0          53m   192.168.209.5    networkpolicy-lab-control-plane   <none>           <none>
+whisker-d6cc654db-b75xc                    2/2     Running   0          39m   192.168.209.7    networkpolicy-lab-control-plane   <none>           <none>

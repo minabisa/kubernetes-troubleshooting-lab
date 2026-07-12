@@ -1,0 +1,5 @@
+NAME                                   READY   STATUS    RESTARTS   AGE   IP               NODE                        NOMINATED NODE   READINESS GATES   LABELS
+backend-55db8cd747-jfm4b               1/1     Running   0          11m   192.168.63.4     networkpolicy-lab-worker    <none>           <none>            access-group=internal,app=backend,pod-template-hash=55db8cd747,tier=api
+backend-55db8cd747-r5sgx               1/1     Running   0          11m   192.168.60.194   networkpolicy-lab-worker2   <none>           <none>            access-group=internal,app=backend,pod-template-hash=55db8cd747,tier=api
+frontend-8647b7bbf7-s4dsj              1/1     Running   0          26m   192.168.63.2     networkpolicy-lab-worker    <none>           <none>            access=backend,app=frontend,pod-template-hash=8647b7bbf7,tier=web
+unauthorized-client-795d59b76c-cps4z   1/1     Running   0          26m   192.168.63.3     networkpolicy-lab-worker    <none>           <none>            app=unauthorized-client,pod-template-hash=795d59b76c,tier=test

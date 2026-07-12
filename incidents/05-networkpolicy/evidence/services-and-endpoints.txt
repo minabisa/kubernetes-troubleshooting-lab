@@ -1,0 +1,5 @@
+NAME              TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/backend   ClusterIP   10.96.72.205   <none>        80/TCP    12m
+
+NAME                ENDPOINTS                               AGE
+endpoints/backend   192.168.60.194:8080,192.168.63.4:8080   12m

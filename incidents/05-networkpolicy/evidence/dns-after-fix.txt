@@ -1,0 +1,15 @@
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+Name:	backend.network-policy-lab.svc.cluster.local
+Address: 10.96.72.205
+
+** server can't find backend.cluster.local: NXDOMAIN
+
+
+** server can't find backend.svc.cluster.local: NXDOMAIN
+
+** server can't find backend.cluster.local: NXDOMAIN
+
+** server can't find backend.svc.cluster.local: NXDOMAIN
+
