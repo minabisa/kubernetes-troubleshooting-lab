@@ -1,0 +1,27 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{},"labels":{"app":"observability-demo","release":"monitoring"},"name":"observability-demo","namespace":"monitoring"},"spec":{"endpoints":[{"interval":"15s","path":"/metrics","port":"http","scrapeTimeout":"10s"}],"namespaceSelector":{"matchNames":["observability-demo"]},"selector":{"matchLabels":{"monitoring":"enabled"}}}}
+  creationTimestamp: "2026-07-13T00:09:31Z"
+  generation: 1
+  labels:
+    app: observability-demo
+    release: monitoring
+  name: observability-demo
+  namespace: monitoring
+  resourceVersion: "76161"
+  uid: 859c4997-ebf9-42d1-ab4e-16aa0cd62a68
+spec:
+  endpoints:
+  - interval: 15s
+    path: /metrics
+    port: http
+    scrapeTimeout: 10s
+  namespaceSelector:
+    matchNames:
+    - observability-demo
+  selector:
+    matchLabels:
+      monitoring: enabled

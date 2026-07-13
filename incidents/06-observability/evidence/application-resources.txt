@@ -1,0 +1,12 @@
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS    IMAGES                  SELECTOR
+deployment.apps/observability-demo   2/2     2            2           51m   application   observability-demo:v1   app=observability-demo
+
+NAME                                      READY   STATUS    RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+pod/observability-demo-867d77b9f9-tkmsr   1/1     Running   0          12m   10.244.1.13   troubleshooting-lab-worker2   <none>           <none>
+pod/observability-demo-867d77b9f9-xbqrq   1/1     Running   0          12m   10.244.3.19   troubleshooting-lab-worker    <none>           <none>
+
+NAME                         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE   SELECTOR
+service/observability-demo   ClusterIP   10.96.153.183   <none>        80/TCP    51m   app=observability-demo
+
+NAME                           ENDPOINTS                           AGE
+endpoints/observability-demo   10.244.1.13:8080,10.244.3.19:8080   51m

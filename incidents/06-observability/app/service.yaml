@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: observability-demo
+  namespace: observability-demo
+  labels:
+    app: observability-demo
+    monitoring: enabled
+spec:
+  type: ClusterIP
+
+  selector:
+    app: observability-demo
+
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: http
