@@ -1,0 +1,2 @@
+NAME                                  READY   STATUS    RESTARTS   AGE     IP            NODE                          NOMINATED NODE   READINESS GATES
+monitoring-grafana-867dcf7778-vmqgb   3/3     Running   0          3m48s   10.244.1.14   troubleshooting-lab-worker2   <none>           <none>
