@@ -11,10 +11,9 @@ from prometheus_client import (
     generate_latest,
 )
 
-
 app = Flask(__name__)
 
-APP_VERSION = os.getenv("APP_VERSION", "1.0.0")
+APP_VERSION = os.getenv("APP_VERSION", "2.0.0")
 APP_ENVIRONMENT = os.getenv("APP_ENVIRONMENT", "development")
 
 REQUEST_COUNT = Counter(
@@ -83,6 +82,7 @@ def index():
 
         record_request("/", 200, started_at)
         return jsonify(response), 200
+
     finally:
         ACTIVE_REQUESTS.dec()
 
@@ -95,6 +95,7 @@ def health():
     try:
         record_request("/health", 200, started_at)
         return jsonify({"status": "healthy"}), 200
+
     finally:
         ACTIVE_REQUESTS.dec()
 
@@ -107,6 +108,7 @@ def ready():
     try:
         record_request("/ready", 200, started_at)
         return jsonify({"status": "ready"}), 200
+
     finally:
         ACTIVE_REQUESTS.dec()
 
@@ -128,6 +130,7 @@ def slow():
                 "delay_seconds": round(delay, 2),
             }
         ), 200
+
     finally:
         ACTIVE_REQUESTS.dec()
 
@@ -139,6 +142,7 @@ def error():
 
     try:
         SIMULATED_ERRORS.labels(error_type="http_500").inc()
+
         record_request("/error", 500, started_at)
 
         return jsonify(
@@ -147,6 +151,37 @@ def error():
                 "message": "This is an intentional test failure",
             }
         ), 500
+
+    finally:
+        ACTIVE_REQUESTS.dec()
+
+
+# ---------------------------------------------------------
+# CPU-intensive endpoint
+# Used to trigger Prometheus High CPU alerts
+# ---------------------------------------------------------
+@app.route("/cpu")
+def cpu():
+    started_at = time.time()
+    ACTIVE_REQUESTS.inc()
+
+    try:
+        end_time = time.time() + 2
+
+        value = 0
+
+        while time.time() < end_time:
+            value += sum(number * number for number in range(10000))
+
+        record_request("/cpu", 200, started_at)
+
+        return jsonify(
+            {
+                "status": "completed",
+                "result": value,
+            }
+        ), 200
+
     finally:
         ACTIVE_REQUESTS.dec()
 

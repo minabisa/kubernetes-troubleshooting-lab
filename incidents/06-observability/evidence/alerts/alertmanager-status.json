@@ -1,0 +1,18 @@
+{
+    "cluster": {
+        "peers": [],
+        "status": "disabled"
+    },
+    "config": {
+        "original": "global:\n  resolve_timeout: 5m\n  http_config:\n    follow_redirects: true\n    enable_http2: true\n  smtp_hello: localhost\n  smtp_require_tls: true\n  smtp_tls_config:\n    insecure_skip_verify: false\n  slack_app_url: https://slack.com/api/chat.postMessage\n  pagerduty_url: https://events.pagerduty.com/v2/enqueue\n  opsgenie_api_url: https://api.opsgenie.com/\n  wechat_api_url: https://qyapi.weixin.qq.com/cgi-bin/\n  victorops_api_url: https://alert.victorops.com/integrations/generic/20131114/alert/\n  telegram_api_url: https://api.telegram.org\n  webex_api_url: https://webexapis.com/v1/messages\n  rocketchat_api_url: https://open.rocket.chat/\nroute:\n  receiver: default-receiver\n  group_by:\n  - alertname\n  - namespace\n  - service\n  continue: false\n  routes:\n  - receiver: critical-receiver\n    matchers:\n    - severity=\"critical\"\n    continue: false\n  - receiver: warning-receiver\n    matchers:\n    - severity=\"warning\"\n    continue: false\n  group_wait: 10s\n  group_interval: 30s\n  repeat_interval: 4h\ninhibit_rules:\n- source_matchers:\n  - severity=\"critical\"\n  target_matchers:\n  - severity=\"warning\"\n  equal:\n  - alertname\n  - namespace\n  - service\nreceivers:\n- name: default-receiver\n  labels:\n    name: default-receiver\n- name: critical-receiver\n  labels:\n    name: critical-receiver\n- name: warning-receiver\n  labels:\n    name: warning-receiver\ntemplates:\n- /etc/alertmanager/config/*.tmpl\n"
+    },
+    "uptime": "2026-07-12T22:17:44.158Z",
+    "versionInfo": {
+        "branch": "HEAD",
+        "buildDate": "20260704-19:18:51",
+        "buildUser": "root@6c62ca6626ed",
+        "goVersion": "go1.26.4",
+        "revision": "2c8da51e03f3dbbed24f9711ca2d76aab4eef9c5",
+        "version": "0.33.1"
+    }
+}

@@ -1,0 +1,45 @@
+alertmanager:
+  config:
+    global:
+      resolve_timeout: 5m
+
+    route:
+      receiver: default-receiver
+      group_by:
+        - alertname
+        - namespace
+        - service
+
+      group_wait: 10s
+      group_interval: 30s
+      repeat_interval: 4h
+
+      routes:
+        - receiver: critical-receiver
+          matchers:
+            - severity="critical"
+          continue: false
+
+        - receiver: warning-receiver
+          matchers:
+            - severity="warning"
+          continue: false
+
+    receivers:
+      - name: default-receiver
+
+      - name: critical-receiver
+
+      - name: warning-receiver
+
+    inhibit_rules:
+      - source_matchers:
+          - severity="critical"
+
+        target_matchers:
+          - severity="warning"
+
+        equal:
+          - alertname
+          - namespace
+          - service

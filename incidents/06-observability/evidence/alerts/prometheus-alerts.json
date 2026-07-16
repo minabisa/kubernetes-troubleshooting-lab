@@ -1,0 +1,433 @@
+{
+    "status": "success",
+    "data": {
+        "alerts": [
+            {
+                "labels": {
+                    "alertname": "NodeClockNotSynchronising",
+                    "container": "node-exporter",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.4:9100",
+                    "job": "node-exporter",
+                    "namespace": "monitoring",
+                    "pod": "monitoring-prometheus-node-exporter-ttst4",
+                    "service": "monitoring-prometheus-node-exporter",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "Clock at 172.20.0.4:9100 is not synchronising. Ensure NTP is configured on this host.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+                    "summary": "Clock not synchronising."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:45:11.991714469Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "NodeClockNotSynchronising",
+                    "container": "node-exporter",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.3:9100",
+                    "job": "node-exporter",
+                    "namespace": "monitoring",
+                    "pod": "monitoring-prometheus-node-exporter-2vr2z",
+                    "service": "monitoring-prometheus-node-exporter",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "Clock at 172.20.0.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+                    "summary": "Clock not synchronising."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:45:11.991714469Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "NodeClockNotSynchronising",
+                    "container": "node-exporter",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.2:9100",
+                    "job": "node-exporter",
+                    "namespace": "monitoring",
+                    "pod": "monitoring-prometheus-node-exporter-rsl7l",
+                    "service": "monitoring-prometheus-node-exporter",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "Clock at 172.20.0.2:9100 is not synchronising. Ensure NTP is configured on this host.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+                    "summary": "Clock not synchronising."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:45:11.991714469Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "NodeMemoryMajorPagesFaults",
+                    "container": "node-exporter",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.4:9100",
+                    "job": "node-exporter",
+                    "namespace": "monitoring",
+                    "pod": "monitoring-prometheus-node-exporter-ttst4",
+                    "service": "monitoring-prometheus-node-exporter",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "Memory major pages are occurring at very high rate at 172.20.0.4:9100, 500 major page faults per second for the last 15 minutes, is currently at 856.27.\nPlease check that there is enough memory available at this instance.\n",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodememorymajorpagesfaults",
+                    "summary": "Memory major page faults are occurring at very high rate."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-16T00:29:41.991714469Z",
+                "value": "8.562714350264072e+02"
+            },
+            {
+                "labels": {
+                    "alertname": "NodeMemoryMajorPagesFaults",
+                    "container": "node-exporter",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.2:9100",
+                    "job": "node-exporter",
+                    "namespace": "monitoring",
+                    "pod": "monitoring-prometheus-node-exporter-rsl7l",
+                    "service": "monitoring-prometheus-node-exporter",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "Memory major pages are occurring at very high rate at 172.20.0.2:9100, 500 major page faults per second for the last 15 minutes, is currently at 835.75.\nPlease check that there is enough memory available at this instance.\n",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodememorymajorpagesfaults",
+                    "summary": "Memory major page faults are occurring at very high rate."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-16T00:30:11.991714469Z",
+                "value": "8.357538381761949e+02"
+            },
+            {
+                "labels": {
+                    "alertname": "NodeMemoryMajorPagesFaults",
+                    "container": "node-exporter",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.3:9100",
+                    "job": "node-exporter",
+                    "namespace": "monitoring",
+                    "pod": "monitoring-prometheus-node-exporter-2vr2z",
+                    "service": "monitoring-prometheus-node-exporter",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "Memory major pages are occurring at very high rate at 172.20.0.3:9100, 500 major page faults per second for the last 15 minutes, is currently at 855.85.\nPlease check that there is enough memory available at this instance.\n",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodememorymajorpagesfaults",
+                    "summary": "Memory major page faults are occurring at very high rate."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-16T00:29:41.991714469Z",
+                "value": "8.558460461550427e+02"
+            },
+            {
+                "labels": {
+                    "alertname": "TargetDown",
+                    "job": "kube-proxy",
+                    "namespace": "kube-system",
+                    "service": "monitoring-kube-proxy",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "100% of the kube-proxy/monitoring-kube-proxy targets in kube-system namespace are down.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+                    "summary": "One or more targets are unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:22:14.015383349Z",
+                "value": "1e+02"
+            },
+            {
+                "labels": {
+                    "alertname": "TargetDown",
+                    "job": "kube-controller-manager",
+                    "namespace": "kube-system",
+                    "service": "monitoring-kube-controller-manager",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "100% of the kube-controller-manager/monitoring-kube-controller-manager targets in kube-system namespace are down.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+                    "summary": "One or more targets are unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:22:14.015383349Z",
+                "value": "1e+02"
+            },
+            {
+                "labels": {
+                    "alertname": "TargetDown",
+                    "job": "kube-scheduler",
+                    "namespace": "kube-system",
+                    "service": "monitoring-kube-scheduler",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "100% of the kube-scheduler/monitoring-kube-scheduler targets in kube-system namespace are down.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+                    "summary": "One or more targets are unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:45:14.015383349Z",
+                "value": "1e+02"
+            },
+            {
+                "labels": {
+                    "alertname": "TargetDown",
+                    "job": "kube-etcd",
+                    "namespace": "kube-system",
+                    "service": "monitoring-kube-etcd",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "100% of the kube-etcd/monitoring-kube-etcd targets in kube-system namespace are down.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+                    "summary": "One or more targets are unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:45:14.015383349Z",
+                "value": "1e+02"
+            },
+            {
+                "labels": {
+                    "alertname": "Watchdog",
+                    "severity": "none"
+                },
+                "annotations": {
+                    "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+                    "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-12T22:29:14.015383349Z",
+                "value": "1e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "KubeSchedulerInstanceUnreachable",
+                    "container": "kube-scheduler",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.3:10259",
+                    "job": "kube-scheduler",
+                    "namespace": "kube-system",
+                    "pod": "kube-scheduler-troubleshooting-lab-control-plane",
+                    "service": "monitoring-kube-scheduler",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "A KubeScheduler instance has been unreachable for more than 15 minutes.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerinstanceunreachable",
+                    "summary": "KubeScheduler instance is unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:22:30.930812091Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "CPUThrottlingHigh",
+                    "container": "kindnet-cni",
+                    "instance": "172.20.0.3:10250",
+                    "namespace": "kube-system",
+                    "pod": "kindnet-bs2zk",
+                    "service": "monitoring-kubelet",
+                    "severity": "info"
+                },
+                "annotations": {
+                    "description": "33.33% throttling of CPU in namespace kube-system for container kindnet-cni in pod kindnet-bs2zk on cluster .",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/cputhrottlinghigh",
+                    "summary": "Processes experience elevated CPU throttling."
+                },
+                "state": "pending",
+                "activeAt": "2026-07-16T00:51:55.205344102Z",
+                "value": "3.3333333333333337e-01"
+            },
+            {
+                "labels": {
+                    "alertname": "CPUThrottlingHigh",
+                    "container": "kindnet-cni",
+                    "instance": "172.20.0.4:10250",
+                    "namespace": "kube-system",
+                    "pod": "kindnet-xwfwl",
+                    "service": "monitoring-kubelet",
+                    "severity": "info"
+                },
+                "annotations": {
+                    "description": "28.81% throttling of CPU in namespace kube-system for container kindnet-cni in pod kindnet-xwfwl on cluster .",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/cputhrottlinghigh",
+                    "summary": "Processes experience elevated CPU throttling."
+                },
+                "state": "pending",
+                "activeAt": "2026-07-16T00:56:55.205344102Z",
+                "value": "2.880658436213992e-01"
+            },
+            {
+                "labels": {
+                    "alertname": "CPUThrottlingHigh",
+                    "container": "kindnet-cni",
+                    "instance": "172.20.0.2:10250",
+                    "namespace": "kube-system",
+                    "pod": "kindnet-w98sl",
+                    "service": "monitoring-kubelet",
+                    "severity": "info"
+                },
+                "annotations": {
+                    "description": "32.6% throttling of CPU in namespace kube-system for container kindnet-cni in pod kindnet-w98sl on cluster .",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/cputhrottlinghigh",
+                    "summary": "Processes experience elevated CPU throttling."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-16T00:40:55.205344102Z",
+                "value": "3.259911894273128e-01"
+            },
+            {
+                "labels": {
+                    "alertname": "etcdMembersDown",
+                    "container": "etcd",
+                    "job": "kube-etcd",
+                    "namespace": "kube-system",
+                    "service": "monitoring-kube-etcd",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "etcd cluster \"kube-etcd\": members are down (1).",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/etcd/etcdmembersdown",
+                    "summary": "etcd cluster members are down."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:45:31.486512648Z",
+                "value": "1e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "etcdInsufficientMembers",
+                    "container": "etcd",
+                    "endpoint": "http-metrics",
+                    "job": "kube-etcd",
+                    "namespace": "kube-system",
+                    "service": "monitoring-kube-etcd",
+                    "severity": "critical"
+                },
+                "annotations": {
+                    "description": "etcd cluster \"kube-etcd\": insufficient members (0).",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/etcd/etcdinsufficientmembers",
+                    "summary": "etcd cluster has insufficient number of members."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:45:31.486512648Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "KubeControllerManagerInstanceUnreachable",
+                    "container": "kube-controller-manager",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.3:10257",
+                    "job": "kube-controller-manager",
+                    "namespace": "kube-system",
+                    "pod": "kube-controller-manager-troubleshooting-lab-control-plane",
+                    "service": "monitoring-kube-controller-manager",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "A KubeControllerManager instance has been unreachable for more than 15 minutes.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerinstanceunreachable",
+                    "summary": "KubeControllerManager instance is unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:45:10.42501459Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "KubeProxyInstanceUnreachable",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.3:10249",
+                    "job": "kube-proxy",
+                    "namespace": "kube-system",
+                    "pod": "kube-proxy-5dbxd",
+                    "service": "monitoring-kube-proxy",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "A KubeProxy instance has been unreachable for more than 15 minutes.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxyinstanceunreachable",
+                    "summary": "KubeProxy instance is unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:45:33.344136666Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "KubeProxyInstanceUnreachable",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.2:10249",
+                    "job": "kube-proxy",
+                    "namespace": "kube-system",
+                    "pod": "kube-proxy-zww6t",
+                    "service": "monitoring-kube-proxy",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "A KubeProxy instance has been unreachable for more than 15 minutes.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxyinstanceunreachable",
+                    "summary": "KubeProxy instance is unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T10:10:33.344136666Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "KubeProxyInstanceUnreachable",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.4:10249",
+                    "job": "kube-proxy",
+                    "namespace": "kube-system",
+                    "pod": "kube-proxy-dkfnn",
+                    "service": "monitoring-kube-proxy",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "A KubeProxy instance has been unreachable for more than 15 minutes.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxyinstanceunreachable",
+                    "summary": "KubeProxy instance is unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-07-15T22:22:33.344136666Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "PrometheusMissingRuleEvaluations",
+                    "container": "prometheus",
+                    "endpoint": "http-web",
+                    "instance": "10.244.1.11:9090",
+                    "job": "monitoring-prometheus",
+                    "namespace": "monitoring",
+                    "pod": "prometheus-monitoring-prometheus-0",
+                    "rule_group": "/etc/prometheus/rules/prometheus-monitoring-prometheus-rulefiles-0/monitoring-observability-demo-alerts-bdfbf5f4-943a-4b27-8c61-95d1cebb3161.yaml;observability-demo.availability",
+                    "service": "monitoring-prometheus",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "Prometheus monitoring/prometheus-monitoring-prometheus-0 has missed 1 rule group evaluations in the last 5m.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusmissingruleevaluations",
+                    "summary": "Prometheus is missing rule evaluations due to slow rule group evaluation."
+                },
+                "state": "pending",
+                "activeAt": "2026-07-16T00:49:36.087729847Z",
+                "value": "1.111102880719402e+00"
+            }
+        ]
+    }
+}

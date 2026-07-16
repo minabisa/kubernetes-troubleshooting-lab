@@ -1,0 +1,224 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: observability-demo-alerts
+  namespace: monitoring
+  labels:
+    app: observability-demo
+    release: monitoring
+    project: kubernetes-troubleshooting-lab
+spec:
+  groups:
+    - name: observability-demo.availability
+      interval: 15s
+      rules:
+        - alert: ObservabilityDemoTargetDown
+          expr: |
+            (
+              up{
+                namespace="observability-demo",
+                service="observability-demo"
+              } == 0
+            )
+            or
+            absent(
+              up{
+                namespace="observability-demo",
+                service="observability-demo"
+              }
+            )
+          for: 1m
+          labels:
+            severity: critical
+            team: devops
+            service: observability-demo
+            category: availability
+          annotations:
+            summary: "Observability demo target is down"
+            description: |
+              Prometheus has been unable to scrape the observability-demo
+              target for more than one minute.
+            runbook_url: |
+              https://github.com/minabisa/kubernetes-troubleshooting-lab/tree/main/incidents/06-observability
+
+        - alert: ObservabilityDemoNoAvailableReplicas
+          expr: |
+            kube_deployment_status_replicas_available{
+              namespace="observability-demo",
+              deployment="observability-demo"
+            } < 1
+          for: 1m
+          labels:
+            severity: critical
+            team: devops
+            service: observability-demo
+            category: availability
+          annotations:
+            summary: "Observability demo has no available replicas"
+            description: |
+              Deployment observability-demo has had fewer than one available
+              replica for more than one minute.
+            runbook_url: |
+              https://github.com/minabisa/kubernetes-troubleshooting-lab/tree/main/incidents/06-observability
+
+        - alert: ObservabilityDemoReplicaMismatch
+          expr: |
+            kube_deployment_spec_replicas{
+              namespace="observability-demo",
+              deployment="observability-demo"
+            }
+            >
+            kube_deployment_status_replicas_available{
+              namespace="observability-demo",
+              deployment="observability-demo"
+            }
+          for: 2m
+          labels:
+            severity: warning
+            team: devops
+            service: observability-demo
+            category: availability
+          annotations:
+            summary: "Observability demo replica mismatch"
+            description: |
+              The desired replica count is greater than the available replica
+              count for more than two minutes.
+
+    - name: observability-demo.application
+      interval: 15s
+      rules:
+        - alert: ObservabilityDemoHighErrorRate
+          expr: |
+            (
+              100 *
+              sum(
+                rate(
+                  demo_http_requests_total{
+                    namespace="observability-demo",
+                    status=~"5.."
+                  }[2m]
+                )
+              )
+              /
+              clamp_min(
+                sum(
+                  rate(
+                    demo_http_requests_total{
+                      namespace="observability-demo"
+                    }[2m]
+                  )
+                ),
+                0.001
+              )
+            ) > 10
+          for: 1m
+          labels:
+            severity: warning
+            team: application
+            service: observability-demo
+            category: errors
+          annotations:
+            summary: "High HTTP 5xx error percentage"
+            description: |
+              More than 10 percent of observability-demo requests have returned
+              HTTP 5xx responses for more than one minute.
+            runbook_url: |
+              https://github.com/minabisa/kubernetes-troubleshooting-lab/tree/main/incidents/06-observability
+
+        - alert: ObservabilityDemoHighLatency
+          expr: |
+            histogram_quantile(
+              0.95,
+              sum by (le) (
+                rate(
+                  demo_http_request_duration_seconds_bucket{
+                    namespace="observability-demo"
+                  }[2m]
+                )
+              )
+            ) > 1
+          for: 1m
+          labels:
+            severity: warning
+            team: application
+            service: observability-demo
+            category: latency
+          annotations:
+            summary: "High p95 application latency"
+            description: |
+              The p95 request latency for observability-demo has exceeded one
+              second for more than one minute.
+            runbook_url: |
+              https://github.com/minabisa/kubernetes-troubleshooting-lab/tree/main/incidents/06-observability
+
+    - name: observability-demo.resources
+      interval: 15s
+      rules:
+        - alert: ObservabilityDemoContainerRestart
+          expr: |
+            increase(
+              kube_pod_container_status_restarts_total{
+                namespace="observability-demo",
+                container="application"
+              }[5m]
+            ) > 0
+          labels:
+            severity: warning
+            team: devops
+            service: observability-demo
+            category: stability
+          annotations:
+            summary: "Application container restarted"
+            description: |
+              Container application in Pod {{ $labels.pod }} restarted during
+              the previous five minutes.
+            runbook_url: |
+              https://github.com/minabisa/kubernetes-troubleshooting-lab/tree/main/incidents/06-observability
+
+        - alert: ObservabilityDemoHighCPU
+          expr: |
+            sum by (pod) (
+              rate(
+                container_cpu_usage_seconds_total{
+                  namespace="observability-demo",
+                  container="application",
+                  pod=~"observability-demo-.*"
+                }[2m]
+              )
+            ) > 0.20
+          for: 2m
+          labels:
+            severity: warning
+            team: devops
+            service: observability-demo
+            category: resources
+          annotations:
+            summary: "High application CPU usage"
+            description: |
+              Pod {{ $labels.pod }} has consumed more than 0.20 CPU cores for
+              more than two minutes.
+            runbook_url: |
+              https://github.com/minabisa/kubernetes-troubleshooting-lab/tree/main/incidents/06-observability
+
+        - alert: ObservabilityDemoHighMemory
+          expr: |
+            sum by (pod) (
+              container_memory_working_set_bytes{
+                namespace="observability-demo",
+                container="application",
+                pod=~"observability-demo-.*"
+              }
+            ) > 200 * 1024 * 1024
+          for: 2m
+          labels:
+            severity: warning
+            team: devops
+            service: observability-demo
+            category: resources
+          annotations:
+            summary: "High application memory usage"
+            description: |
+              Pod {{ $labels.pod }} has used more than 200 MiB of working-set
+              memory for more than two minutes.
+            runbook_url: |
+              https://github.com/minabisa/kubernetes-troubleshooting-lab/tree/main/incidents/06-observability
